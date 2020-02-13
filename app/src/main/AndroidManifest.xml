@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.webappboilerplate">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-feature android:name="android.hardware.camera"/>
+
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+        android:name=".application.GlobalApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:replace="android:name">
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false"/>
+
+        <activity
+            android:name=".activity.WindowActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".activity.IntroActivity"
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="basicwebapp://"/>
+                <data
+                    android:scheme="@string/kakao_scheme"
+                    android:host="@string/kakaolink_host"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.MainWithIntroActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".util.NicePay.WebViewActivity"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name=".social.BasicKakaoActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".social.BasicNaverActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".social.BasicFacebookActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".social.BasicPaycoActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.dev.hare.socialloginmodule.activity.social.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name="com.dev.hare.socialloginmodule.activity.social.CustomTabActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="@string/FB_LOGIN_PROTOCOL_SCHEME"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.dev.hare.socialloginmodule.activity.social.PaycoLoginAuthWebViewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/paycoLoginStyle"
+            /> <!-- Social Login Activity -->
+        <!-- Social Login Meta-Data -->
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakao_app_key"/>
+        <meta-data
+            android:name="NAVER_OAUTH_CLIENT_ID"
+            android:value="@string/NAVER_OAUTH_CLIENT_ID"/>
+        <meta-data
+            android:name="NAVER_OAUTH_CLIENT_SECRET"
+            android:value="@string/NAVER_OAUTH_CLIENT_SECRET"/>
+        <meta-data
+            android:name="NAVER_OAUTH_CLIENT_NAME"
+            android:value="@string/NAVER_OAUTH_CLIENT_NAME"/>
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/FACEBOOK_APP_ID"/>
+        <meta-data
+            android:name="PAYCO_CLIENT_ID"
+            android:value="@string/PAYCO_CLIENT_ID"/>
+        <meta-data
+            android:name="PAYCO_SECRET_KEY"
+            android:value="@string/PAYCO_SECRET_KEY"/>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                tools:replace="android:resource"
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
+        <service
+            android:name=".push.BasicMessagingListener"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name=".push.ImageDownloadService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            />
+    </application>
+
+</manifest>

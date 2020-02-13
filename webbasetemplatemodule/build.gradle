@@ -1,0 +1,60 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 3
+        versionName "1.2.2"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha05'
+    implementation 'androidx.core:core:1.2.0-alpha01'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta1'
+
+    // https://square.github.io/retrofit/
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    // https://github.com/google/gson
+    implementation 'com.google.code.gson:gson:2.8.5'
+    // https://github.com/square/retrofit/tree/master/retrofit-converters/gson
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    // https://square.github.io/okhttp/
+    // implementation 'com.squareup.okhttp3:okhttp:3.14.1'
+    // https://github.com/bumptech/glide
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
+    // https://github.com/kotlin/kotlinx.coroutines/blob/master/README.md#using-in-your-projects
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.1'
+
+    // jsoup - ckeckdate - 2017.12.18
+    implementation 'org.jsoup:jsoup:1.12.1'
+
+    implementation project(':apputilitymodule')
+
+    testImplementation 'junit:junit:4.13-beta-3'
+    androidTestImplementation 'androidx.test:runner:1.2.0-beta01'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-beta01'
+}
+repositories {
+    mavenCentral()
+}

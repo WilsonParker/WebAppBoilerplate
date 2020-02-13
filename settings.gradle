@@ -1,0 +1,2 @@
+include ':app', ':firebasepushmodule', ':apputilitymodule', ':socialloginmodule', ':webbasetemplatemodule'
+rootProject.name='WebAppBoilerplate'

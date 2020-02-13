@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">WebAppBoilerplate</string>
+
+    <string name="kakao_app_key">ab6bf82682ad03df1eeb1bc4d2b23141</string>
+    <string name="kakao_scheme">kakaoab6bf82682ad03df1eeb1bc4d2b23141</string>
+    <string name="kakaolink_host">kakaolink</string>
+    <string name="FACEBOOK_APP_ID">153135032118966</string>
+    <string name="FB_LOGIN_PROTOCOL_SCHEME">fb153135032118966</string>
+    <string name="NAVER_OAUTH_CLIENT_ID">r7foE45hJfMc05WM9n3F</string>
+    <string name="NAVER_OAUTH_CLIENT_SECRET">Ic_0Ps2CwW</string>
+    <string name="NAVER_OAUTH_CLIENT_NAME">BasicWebApp</string>
+    <string name="PAYCO_CLIENT_ID">3RDwygLgtRbtUOm1hKeA</string>
+    <string name="PAYCO_SECRET_KEY">1agHup2K4UkACsL0MIZTzDKb</string>
+
+    <!-- TEST -->
+    <!--
+    <string name="NAVER_OAUTH_CLIENT_ID">r7G9pOSDDv7vfTssOmyw</string>
+    <string name="NAVER_OAUTH_CLIENT_SECRET">SUfqlcYYkp</string>
+    <string name="NAVER_OAUTH_CLIENT_NAME">WebBaseApplicationTest</string>
+    <string name="PAYCO_CLIENT_ID">3RDpsIooTR90xecKaJuw</string>
+    <string name="PAYCO_SECRET_KEY">MEBy_gcFBZpz74w2T6_EwXDP</string>
+    -->
+</resources>

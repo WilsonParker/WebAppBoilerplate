@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.dev.hare.socialloginmodule">
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application android:name=".application.GlobalApplication">
+        <!-- [PaycoLoginLib] 인증관련 세팅 -->
+        <activity android:name="com.toast.android.paycologin.auth.PaycoLoginAuthWebViewActivity"
+                  android:theme="@style/com_toast_android_paycologin_theme_paycologin"
+                  android:screenOrientation="portrait" />
+        <!-- //[PaycoLoginLib] 인증관련 세팅 -->
+
+    </application>
+
+</manifest>
